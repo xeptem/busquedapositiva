@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--<link rel="shortcut icon" href="../images/favicon.png" type="image/png">-->
+
+  <title>Busqueda Positiva</title>
+
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../lib/weather-icons/css/weather-icons.css">
+  <link rel="stylesheet" href="../lib/jquery-toggles/toggles-full.css">
+  <link rel="stylesheet" href="../lib/summernote/summernote.css">
+
+  <link rel="stylesheet" href="../css/quirk.css">
+
+  <script src="../lib/modernizr/modernizr.js"></script>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../lib/html5shiv/html5shiv.js"></script>
+  <script src="../lib/respond/respond.src.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  
+  <header>
+    <div class="headerpanel">
+
+      <div class="logopanel">
+        <h2><a href="index.html">Busqueda Positiva</a></h2>
+      </div><!-- logopanel -->
+
+      <div class="headerbar">      
+                 
+          <h3><font color="ffffff"> Consulta online</font></h3>
+        
+        
+      </div><!-- headerbar -->
+    </div><!-- header-->
+  </header>
+
+  <section>
+
+    
+
+    <div class="contentpanel">
+      
+      <div class="mailcontent hide">
+        
+          
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle" src="../images/photos/user1.png" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Mariano Jose Remigio</h4>
+              a: mi consulta es refente a la gastritis
+            </div>
+          </div><!-- media -->
+        </div><!-- email-header -->
+
+        <hr>
+         <br><br>
+        <h3 class="email-subject">Dolencia en el estomago continuo <span class="markstar"><i class="glyphicon glyphicon-star"></i></span></h3>
+        <div class="email-body">
+          <p>Saludos Doc</p>
+          <p>mi dolencia es en las mañanas me duele mucho la boca del estomago</p>
+          
+        </div>
+
+        <br>
+        <hr>
+
+        <h4 class="panel-title">Fotos:</h4>
+        <ul class="list-unstyled list-attachments">
+          <li><i class="fa fa-file-pdf-o"></i> <a href="">imagen1.jpg</a></li>
+          <li><i class="fa fa-file-pdf-o"></i> <a href="">imagen2.jpg</a></li>
+        </ul>
+
+        <hr>
+        <div class="panel-footer">
+                      <ul class="list-inline">
+                        <li><a><i class="glyphicon glyphicon-video-camera"></i> </a></li>
+                        <li><a><i class="glyphicon glyphicon-volume-up"></i> </a></li>
+                        
+                      </ul>
+                    </div>
+
+        <div class="form-group email-editor">
+          <div id="summernote">Comentar</div>
+        </div>
+        <button class="btn btn-success">Enviar mensaje</button>
+        <button class="btn btn-default">Receta medica digital</button>
+        <button class="btn btn-default">Orden medico digital</button>
+
+        <br><br>
+
+
+      </div><!-- mailcontent -->
+
+</section>
+
+
+
+<script src="../lib/jquery/jquery.js"></script>
+<script src="../lib/jquery-ui/jquery-ui.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../lib/jquery-toggles/toggles.js"></script>
+<script src="../lib/summernote/summernote.js"></script>
+
+<script src="../js/quirk.js"></script>
+<script>
+$(document).ready(function() {
+  $('.emailcontent input[type=checkbox]').click(function() {
+    if($(this).is(':checked')) {
+      $(this).closest('.list-group-item').addClass('selected');
+    } else {
+      $(this).closest('.list-group-item').removeClass('selected');
+    }
+  });
+
+  // Mark a star
+  $('.markstar').click(function() {
+    if($(this).hasClass('starred')) {
+      $(this).removeClass('starred');
+    } else {
+      $(this).addClass('starred');
+    }
+  });
+
+  // Clicking a message
+  $('.list-group-item > .media').click(function() {
+
+    $('.list-group-item').each(function() {
+      $(this).removeClass('active');
+    });
+
+    $(this).parent().addClass('active').removeClass('unread');
+    $('.nomail').addClass('hide');
+    $('.mailcontent').removeClass('hide');
+  });
+
+
+  // Summernote
+  $('#summernote, #summernote2').summernote({
+    height: 100,
+    toolbar: [
+     
+    ]
+  });
+
+});
+</script>
+
+</body>
+</html>
